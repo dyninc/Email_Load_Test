@@ -1,0 +1,13 @@
+- Log in as ubuntu user
+- Install Chef ( http://wiki.opscode.com/display/chef/Quick+Start )
+- Install Knife EC2 plugin
+        - sudo gem install knife-ec2
+- Update knife configuration files in ~/chef-repo/.chef according to chef documentation
+- Copy .pem files to ~/chef-repo/.chef (user and validator)
+- Install pssh (sudo apt-get install pssh)
+- Create directory ~/mail_test
+- Place all master script files into ~/mail_test
+- Add .pem for your amazon EC2 security group to ~/.ssh
+- Edit (or add) the file ~/.ssh/config and add the following lines for all servers (this will alleviate the ssh confirmation on first login which blocks initial automation)
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null

@@ -1,0 +1,19 @@
+-Login as the ubuntu user
+-Install postfix (sudo apt-get install postfix)
+       - Set System mail name to be <sender fqdn>
+-Create directory ~/mail_stress
+-Add client scripts into mail stress
+-Configure postfix:
+    Create /etc/postfix/sasl_passwd
+       - Add the following to sasl_passwd:
+             <relay to send through> <username>:<password>
+    Edit /etc/postfix/main.cf
+        -Update "relayhost=<relay to send through>:<port>"
+	- Add the following to main.cf:
+	     smtp_sasl_auth_enable=yes
+	     smtp_sasl_password_maps=hash:/etc/postfix/sasl_passwd
+	     smtp_sasl_security_options=
+    Give the correct permissions to the file then create the password has and reload postfix:
+	- sudo chown root:root /etc/postfix/sasl_passwd && sudo chmod 600 /etc/postfix/sasl_passwd
+	   sudo postmap hash:/etc/postfix/sasl_passwd
+	   sudo postfix reload

@@ -1,0 +1,9 @@
+- Login as ubuntu user
+- Install postfix (sudo apt-get install postfix)
+    - Set the System Mail name to be <receiveing server fqdn>
+- Update /etc/postfix/master.cf
+	- Comment out the line to start smtpd (almost at the top)
+- Restart Postfix:
+        - sudo postfix reload
+- Start the mail sink:
+        - sudo smtp-sink -c -u ubuntu :25 250
