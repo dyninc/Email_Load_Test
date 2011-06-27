@@ -33,7 +33,7 @@ echo "  messages: number of messages per machine"
 echo "  server: mail server to relay to, defaults to smtp.sendlabs.com"
 echo "  oldserver: server to replace, defaults to smtp.sendlabs.com"
 echo "  open: true to reuse connections, defaults to a new connection each time"
-echo "  to: email address to send to, defaults to ubuntu@catcher1.dynmailtest.com"
+echo "  to: email address to send to, defaults to <default address>"
 echo ""
 exit 1
 fi
